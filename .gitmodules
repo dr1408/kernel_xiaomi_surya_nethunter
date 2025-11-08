@@ -1,0 +1,15 @@
+[submodule "kali-nethunter-kernel-builder"]
+	path = kali-nethunter-kernel-builder
+	url = https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder
+[submodule "drivers/net/wireless/realtek/rtl8188eus"]
+	path = drivers/net/wireless/realtek/rtl8188eus
+	url = https://github.com/aircrack-ng/rtl8188eus.git
+[submodule "drivers/net/wireless/realtek/rtl8188au"]
+	path = drivers/net/wireless/realtek/rtl8188au
+	url = https://github.com/akabul0us/rtl8812au.git
+[submodule "drivers/net/wireless/drivers/net/wireless/mediatek/mt76"]
+	path = drivers/net/wireless/drivers/net/wireless/mediatek/mt76
+	url = https://github.com/akabul0us/mt76.git
+[submodule "drivers/net/wireless/mediatek/mt76"]
+	path = drivers/net/wireless/mediatek/mt76
+	url = https://github.com/akabul0us/mt76.git
