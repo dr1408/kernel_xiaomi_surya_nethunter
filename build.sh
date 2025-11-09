@@ -135,6 +135,34 @@ build_kernel() {
     fi
 }
 
+package_modules() {
+    print_info "Packaging modules..."
+    
+    # Create modules directory
+    MODULES_DIR="modules_$(date +%Y%m%d_%H%M%S)"
+    mkdir -p $MODULES_DIR
+    
+    # Find and copy all .ko modules
+    find out -name "*.ko" -type f | while read module; do
+        cp "$module" "$MODULES_DIR/"
+        print_info "  Packaged: $(basename $module)"
+    done
+    
+    # Create tar.gz archive
+    tar -czf "${MODULES_DIR}.tar.gz" "$MODULES_DIR/"
+    
+    # Cleanup
+    rm -rf "$MODULES_DIR"
+    
+    if [ -f "${MODULES_DIR}.tar.gz" ]; then
+        print_success "Modules packaged: ${MODULES_DIR}.tar.gz"
+        return 0
+    else
+        print_error "Failed to package modules"
+        return 1
+    fi
+}
+
 # Main execution
 echo "=========================================="
 echo -e "${GREEN}PixelOS Kernel Build Script${NC}"
@@ -146,8 +174,12 @@ check_toolchain || exit 1
 # Build kernel
 build_kernel $1 || exit 1
 
+# Package modules
+package_modules || exit 1
+
 # Display build time
 echo "=========================================="
 print_success "Build completed in $((SECONDS / 60)) minute(s) and $((SECONDS % 60)) second(s)"
 print_info "Kernel image: out/arch/arm64/boot/Image.gz"
+print_info "Modules archive: modules_*.tar.gz"
 echo "=========================================="

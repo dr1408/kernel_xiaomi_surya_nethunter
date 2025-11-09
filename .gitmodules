@@ -13,3 +13,6 @@
 [submodule "drivers/net/wireless/mediatek/mt76"]
 	path = drivers/net/wireless/mediatek/mt76
 	url = https://github.com/akabul0us/mt76.git
+[submodule "drivers/net/wireless/realtek/rtl88x2bu"]
+	path = drivers/net/wireless/realtek/rtl88x2bu
+	url = https://github.com/akabul0us/rtl88x2bu.git
