@@ -13,3 +13,6 @@
 [submodule "drivers/net/wireless/realtek/rtl88x2bu"]
 	path = drivers/net/wireless/realtek/rtl88x2bu
 	url = https://github.com/akabul0us/rtl88x2bu.git
+[submodule "drivers/net/can/usb-can-2-module"]
+	path = drivers/net/can/usb-can-2-module
+	url = https://github.com/V0lk3n/usb-can-2-module
